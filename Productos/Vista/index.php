@@ -1,3 +1,10 @@
+<?php
+    require_once('../Modelo/producto.php');
+
+    $modeloProducto= new producto();
+    $productos = $modeloProducto->get();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,39 +39,25 @@
                     </thead>
 
                     <tbody>
+                    <?php         
+                        if($productos != null){ 
+                            foreach($productos as $producto){
+                    ?>
                         <tr>
-                            <th>1</th>
-                            <td>1802</td>
-                            <td>Televisor</td>
-                            <td>1.200.550</td>
-                            <td>1.500.000</td>
+                            <th><?php echo $producto['id_producto']; ?></th>
+                            <td><?php echo $producto['codigo']; ?></td>
+                            <td><?php echo $producto['nombre']; ?></td>
+                            <td><?php echo $producto['precio_costo']; ?></td>
+                            <td><?php echo $producto['precio_venta']; ?></td>
                             <td>
-                                <a href="Javascript:void()" onclick="modalEditar()"><button type="button" class="btn btn-success" title="Editar"><i class="bi bi-pencil-fill"></i> Editar</button></a>
-                                <a href="Javascript:void()" onclick="modalEliminar()"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> Eliminar </button></a>
+                                <a href="Javascript:void()" onclick="modalEditar(<?php echo $producto['id_producto']; ?>)"><button type="button" class="btn btn-success" title="Editar"><i class="bi bi-pencil-fill"></i> Editar</button></a>
+                                <a href="Javascript:void()" onclick="modalEliminar(<?php echo $producto['id_producto']; ?>)"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> Eliminar </button></a>
                             </td>
                         </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>1803</td>
-                            <td>Nevera</td>
-                            <td>1.700.000</td>
-                            <td>2.200.000</td>
-                            <td>
-                                <a href="Javascript:void()" onclick="modalEditar()"><button type="button" class="btn btn-success" title="Editar"> <i class="bi bi-pencil-fill"></i> Editar</button></a>
-                                <a href="Javascript:void()" onclick="modalEliminar()"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> Eliminar </button></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>1804</td>
-                            <td>Lavadora</td>
-                            <td>1.300.000</td>
-                            <td>1.600.000</td>
-                            <td>
-                                <a href="Javascript:void()" onclick="modalEditar()"><button type="button" class="btn btn-success" title="Editar"><i class="bi bi-pencil-fill"></i> Editar</button></a>
-                                <a href="Javascript:void()" onclick="modalEliminar()"><button type="button" class="btn btn-danger" title="Eliminar"><i class="bi bi-trash3"></i> Eliminar </button></a>
-                            </td>
-                        </tr>
+                    <?php
+                            }
+                        }
+                    ?>
                     </tbody>
                 </table>
             </div>

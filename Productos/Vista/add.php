@@ -8,43 +8,36 @@
             </div>
 
             <!-- Formulario -->
-            <div class="modal-body">
-                <div class="mb-3">
-                    <input class="form-control" type="number" placeholder="Codigo..." aria-label="default input example">
-                </div>
-
-                <div class="mb-3">
-                    <input class="form-control" type="text" placeholder="Nombre del producto..." aria-label="default input example">
-                </div>
-
-                <div class="mb-3">
-                    <label for="inputFecha" class="form-label">Fecha de Creación</label>
-                    <input class="form-control" type="date" aria-label="default input example">
-                </div>
-                
-                <!-- <div class="mb-3">
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        <option selected>Seleccione uno...</option>
-                        <option value="1">Uno</option>
-                        <option value="2">Dos</option>
-                        <option value="3">tres</option>
-                    </select>
-                </div> -->
-
-                <div class="row">
-                    <div class="col">
-                        <input type="number" class="form-control" placeholder="Precio Costo..." aria-label="First name">
+            <form action="../Controlador/add.php" method="POST">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <input class="form-control" type="number" placeholder="Codigo..." name="codigo" required="" aria-label="Codigo...">
                     </div>
-                    <div class="col">
-                        <input type="number" class="form-control" placeholder="Precio Venta..." aria-label="Last name">
+
+                    <div class="mb-3">
+                        <input class="form-control" type="text" placeholder="Nombre del producto..." name="nombre" required="" aria-label="Nombre del producto...">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputFecha" class="form-label">Fecha de Creación</label>
+                        <input class="form-control" type="date" name="fecha_creacion" required="" aria-label="Fecha de creacion">
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <input type="number" class="form-control" placeholder="Precio Costo..." name="precio_costo" required="" aria-label="Precio Costo">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" placeholder="Precio Venta..." name="precio_venta" required="" aria-label="Precio Venta">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
